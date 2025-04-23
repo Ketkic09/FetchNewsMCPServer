@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from 'zod';
 // import mcp.server from FastMCP
 
+const APIKEY = process.env.APIKEY
 
 const server = new McpServer({
     name: 'TechCrunch News Fetcher',
@@ -32,7 +33,7 @@ server.tool(
     "fetchNews",
     { topic: z.string() },
     async ({ topic }) => {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=${topic}&apiKey=821f18dc9fe444cbb3460456d1dabc1f`);
+      const response = await fetch(`https://newsapi.org/v2/everything?q=${topic}&apiKey=${APIKEY}`);
       const data = JSON.stringify(response.articles[0]['title']);
       return {
         content: [{ type: "text", text: data }]
