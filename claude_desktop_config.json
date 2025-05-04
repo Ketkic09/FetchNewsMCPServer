@@ -1,0 +1,10 @@
+{
+    "mcpServers": {
+        "fetchNews": {
+            "command": "node",
+            "args": [
+                "FILE PATH"
+            ]
+        }
+    }
+}
