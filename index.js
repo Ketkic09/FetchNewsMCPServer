@@ -37,20 +37,6 @@ server.tool(
     }
 );
 
-function addNo(a,b){
-    const sum = a+b
-    return sum
-}
-
-server.tool('addTwoNos', {
-    a: z.number(),
-    b: z.number()
-}, async ({ a,b }) => ({
-    content: [{ type: "text", text: String(addNo(a,b)) }]
-
-})
-)
-
 
 async function init() {
     const transport = new StdioServerTransport();
